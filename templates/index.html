@@ -31,12 +31,13 @@
           <form method="post" enctype="multipart/form-data" autocomplete="off">
             <input type="text" name="restriction_site" class="d-flex justify-content-center mt-2 mb-2 search-query form-control w-25 h-20" placeholder="Enter restriction site" />
             <input type="text" name="sequence" class="d-flex justify-content-center mt-2 mb-2 search-query form-control w-100 h-100" placeholder="Enter DNA sequence" />
-            <input type="submit" value="search" class="d-flex justify-content-center mt-2 btn btn-outline-secondary w-100 h-20">
+            <button type="submit" value="search" class="d-flex justify-content-center mt-2 btn btn-outline-secondary w-100 h-20">Search</button>
           </form>
 
-          <div>
-            <p>{{ motif_count }}</p>
-            <p>{{ Sequence }}</p>
+          <div class="mt-2 p-2 border-0 rounded-2" id="answer">
+            <p>There are {{ motif_count }} restriction sites in the sequence</p>
+            <p id="restriction_site">{{ restriction_site }}</p>
+            <p id="sequence">{{ sequence }}</p>
           </div>
 
         </div>
@@ -61,4 +62,16 @@ body{
   height: 100vh;
   width: 100vw;
 }
+#answer{
+  font-family: "Lucida Console", "Courier New", monospace;
+  background-color: rgba(0, 255, 255, .3)
+}
 </style>
+<script type="text/javascript">
+  const restriction_site = document.getElementById("restriction_site");
+  const sequence = document.getElementById("sequence");
+  
+  sequence.innerHTML = sequence.innerHTML.replaceAll(restriction_site.innerHTML, restriction_site.innerHTML.fontcolor("green"));
+  
+</script>
+
