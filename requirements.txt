@@ -1,3 +1,4 @@
 fastapi
-uvicorn
-Jinja2Templates
+uvicorn==0.17.0
+Jinja2==2.0.1
+python-multipart==1.16.0
