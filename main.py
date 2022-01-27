@@ -27,3 +27,6 @@ async def root(request: Request, restriction_site: str = Form(...), sequence: st
         "sequence": sequence, 
         "restriction_site": restriction_site})
 
+if __name__ == '__main__':
+
+    uvicorn.run(app, host='127.0.0.1', port=8000, debug=True)
